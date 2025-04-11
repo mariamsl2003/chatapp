@@ -1,9 +1,7 @@
 import 'package:chatapp/components/my_button.dart';
 import 'package:chatapp/components/my_text_field.dart';
 import 'package:chatapp/services/auth/auth_service.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
@@ -25,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
       await authService.signinWithEmailAndPassword(
           emailController.text, passwordController.text);
     } catch (e) {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
@@ -57,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 //welcome back message
                 const Text(
-                  "Welcome back, you\'ve been missed!",
+                  "Welcome back, you've been missed!",
                   style: TextStyle(
                     fontSize: 16,
                   ),
